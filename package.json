@@ -11,17 +11,15 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
-    "react-scripts-ts": "2.3.2",
-    "chai": "^4.0.2",
+    "@types/enzyme": "^2.8.1",
     "@types/jest": "^20.0.2",
     "@types/node": "^8.0.6",
     "@types/react": "^15.0.33",
     "@types/react-dom": "^15.5.1",
     "@types/react-redux": "^4.4.45",
     "@types/redux-actions": "^1.2.6",
-    "@types/chai": "^4.0.1",
-    "@types/enzyme": "^2.8.1",
     "enzyme": "^2.9.1",
+    "react-scripts-ts": "2.3.2",
     "react-test-renderer": "^15.6.1"
   },
   "scripts": {
