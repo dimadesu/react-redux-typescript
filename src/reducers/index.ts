@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { enthusiasm } from './enthusiasm';
 
 const rootReducer = combineReducers({
-    enthusiasm
+    enthusiasm,
 });
 
 export default rootReducer;
