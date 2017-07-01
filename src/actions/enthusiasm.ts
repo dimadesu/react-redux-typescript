@@ -1,23 +1,10 @@
-import * as constants from '../constants/enthusiasm';
+import { createAction } from 'redux-actions';
+import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/enthusiasm';
 
-export interface IncrementEnthusiasm {
-    type: constants.INCREMENT_ENTHUSIASM;
-}
+export const incrementEnthusiasm = createAction(
+    INCREMENT_ENTHUSIASM
+);
 
-export interface DecrementEnthusiasm {
-    type: constants.DECREMENT_ENTHUSIASM;
-}
-
-export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm;
-
-export function incrementEnthusiasm(): IncrementEnthusiasm {
-    return {
-        type: constants.INCREMENT_ENTHUSIASM
-    };
-}
-
-export function decrementEnthusiasm(): DecrementEnthusiasm {
-    return {
-        type: constants.DECREMENT_ENTHUSIASM
-    };
-}
+export const decrementEnthusiasm = createAction(
+    DECREMENT_ENTHUSIASM
+);

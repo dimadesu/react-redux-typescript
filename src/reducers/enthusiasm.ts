@@ -1,8 +1,8 @@
-import { EnthusiasmAction } from '../actions/enthusiasm';
+import { Action } from 'redux-actions';
 import { EnthusiasmState } from '../types/index';
 import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/enthusiasm';
 
-export function enthusiasm(state: EnthusiasmState, action: EnthusiasmAction): EnthusiasmState {
+export function enthusiasm(state: EnthusiasmState, action: Action<EnthusiasmState>): EnthusiasmState {
     switch (action.type) {
         case INCREMENT_ENTHUSIASM:
             return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };

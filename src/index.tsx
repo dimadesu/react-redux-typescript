@@ -1,7 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-// import App from './App';
-// import Hello from './containers/Hello';
 import App from './containers/App';
 import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';

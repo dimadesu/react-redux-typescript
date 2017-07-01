@@ -1,6 +1,7 @@
+import { Action } from 'redux-actions';
 import Hello from '../components/Hello';
 import * as actions from '../actions/enthusiasm';
-import { StoreState } from '../types/index';
+import { StoreState, EnthusiasmState } from '../types/index';
 import { connect, Dispatch } from 'react-redux';
 
 export function mapStateToProps(
@@ -12,7 +13,9 @@ export function mapStateToProps(
     };
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>) {
+export function mapDispatchToProps(
+    dispatch: Dispatch<Action<EnthusiasmState>>
+) {
     return {
         onIncrement: () => dispatch(actions.incrementEnthusiasm()),
         onDecrement: () => dispatch(actions.decrementEnthusiasm()),
