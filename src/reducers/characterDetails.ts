@@ -12,6 +12,7 @@ export function characterDetails(state: CharacterState, action: CustomAction): C
       return Object.assign({}, state, action.characterDetails);
     default:
       return state ? state : {
+        id: 'A',
         name: 'A',
         gender: 'A'
       };

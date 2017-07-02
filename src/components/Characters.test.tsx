@@ -4,6 +4,7 @@ import {Characters} from './Characters';
 
 const props = {
   characters: [{
+    id: 'N',
     name: 'N',
     gender: 'N',
   }],

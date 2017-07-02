@@ -8,6 +8,7 @@ interface ExtendedCharacterState extends CharacterState {
 
 export const CharacterDetails = (
   {
+    id,
     name,
     gender
   }: ExtendedCharacterState
@@ -17,6 +18,7 @@ export const CharacterDetails = (
       <h2>Character Details</h2>
       <p>{name}</p>
       <p>{gender}</p>
+      <p>{id}</p>
     </div>
   );
 };

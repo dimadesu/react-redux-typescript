@@ -1,4 +1,5 @@
 export interface CharacterState {
+  id: string;
   name: string;
   gender: string;
 }

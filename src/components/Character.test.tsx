@@ -4,6 +4,7 @@ import {Character} from './Character';
 
 describe('Character', () => {
   const props = {
+    id: 'A',
     name: 'A',
     gender: 'A',
     onCharacterClick: () => {}

@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { App } from './App';
 
 const character = {
+  id: 'A',
   name: 'A',
   gender: 'A'
 };

@@ -3,6 +3,7 @@ import {shallow} from 'enzyme';
 import {CharacterDetails} from './CharacterDetails';
 
 const props = {
+  id: 'A',
   name: 'A',
   gender: 'A',
 };

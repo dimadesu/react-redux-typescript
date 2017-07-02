@@ -18,6 +18,7 @@ export const loadCharactersPage = (page: number) => (dispatch: Dispatch<Action>)
   .then((json) => {
     const characters = json.results.map((character: any) => {
       return {
+        id: character.url,
         name: character.name,
         gender: character.gender
       };

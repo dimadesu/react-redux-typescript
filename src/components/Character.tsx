@@ -7,13 +7,14 @@ interface ExtendedCharacterState extends CharacterState {
   onCharacterClick: Function;
 }
 
-export const Character = ({ name, gender, onCharacterClick }: ExtendedCharacterState) => {
+export const Character = ({ id, name, gender, onCharacterClick }: ExtendedCharacterState) => {
   return (
     <div
       className="character"
       onClick={
         () => {
           onCharacterClick({
+            id: id,
             name: name,
             gender: gender,
           });
