@@ -11,6 +11,18 @@ const character = {
 const minimalProps = {
   characterDetails: character,
   characters: [character],
+  users: [
+    {
+      id: 1,
+      name: 'User 1',
+      color: 'red',
+    },
+    {
+      id: 2,
+      name: 'User 2',
+      color: 'blue',
+    }
+  ],
   dispatch: () => ({})
 };
 

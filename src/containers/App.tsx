@@ -54,7 +54,8 @@ export class App extends React.Component<Props, any> {
 const mapStateToProps = (state: Props) => {
   return {
     characters: state.characters,
-    characterDetails: state.characterDetails
+    characterDetails: state.characterDetails,
+    users: state.users,
   };
 };
 
