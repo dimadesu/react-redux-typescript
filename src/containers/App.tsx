@@ -1,3 +1,4 @@
+import './App.css';
 import * as React from 'react';
 import {bindActionCreators, Action} from 'redux';
 import {connect, Dispatch} from 'react-redux';
@@ -18,8 +19,8 @@ export class App extends React.Component<Props, any> {
 
   render() {
     return (
-      <div>
-        Hello from App container
+      <div className="app">
+        <h1>StarWars Characters App</h1>
         <Characters characters={this.props.characters} />
       </div>
     );

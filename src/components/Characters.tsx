@@ -9,16 +9,14 @@ interface Props {
 export class Characters extends React.Component<Props, any> {
   renderCharacters(_characters: CharacterState[]) {
     return (
-      <div>
-        {_characters.map(() => <Character/>)}
-      </div>
+      _characters.map((character) => <Character {...character}/>)
     );
   }
 
   render() {
     return (
       <div>
-        Characters
+        <h2>Characters List</h2>
         {this.renderCharacters(this.props.characters)}
       </div>
     );
