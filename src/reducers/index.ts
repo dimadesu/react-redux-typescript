@@ -1,8 +1,10 @@
-import { combineReducers } from 'redux';
-import { enthusiasm } from './enthusiasm';
+import {combineReducers} from 'redux';
+import {characters} from './characters';
+import {enthusiasm} from './enthusiasm';
 
 const rootReducer = combineReducers({
-    enthusiasm,
+  characters,
+  enthusiasm
 });
 
 export default rootReducer;

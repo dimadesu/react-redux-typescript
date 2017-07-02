@@ -1,8 +1,14 @@
 export interface EnthusiasmState {
-    languageName: string;
-    enthusiasmLevel: number;
+  languageName: string;
+  enthusiasmLevel: number;
+}
+
+export interface CharacterState {
+  name: string;
+  gender: string;
 }
 
 export interface StoreState {
-    enthusiasm: EnthusiasmState;
+  enthusiasm: EnthusiasmState;
+  characters: CharacterState[];
 }
