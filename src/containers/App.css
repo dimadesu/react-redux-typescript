@@ -1,6 +1,13 @@
 .app {
-    width: 990px;
-    margin: 0 auto;
-    text-align: center;
-    color: yellow;
+  width: 990px;
+  margin: 0 auto;
+  color: yellow;
+}
+
+.columns {
+  display: flex;
+}
+
+.columns > * {
+  flex: 1;
 }

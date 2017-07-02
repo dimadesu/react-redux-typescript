@@ -9,7 +9,11 @@ interface Props {
 export class Characters extends React.Component<Props, any> {
   renderCharacters(_characters: CharacterState[]) {
     return (
-      _characters.map((character, index) => <Character {...character} key={index} />)
+      _characters.map(
+        (character, index) => (
+          <Character {...character} key={index} />
+        )
+      )
     );
   }
 
