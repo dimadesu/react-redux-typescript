@@ -6,8 +6,8 @@ interface Props {
   characters: CharacterState[];
 }
 
-export const Characters = ({ characters }: Props) => {
-  function renderCharacters(_characters: CharacterState[]) {
+export class Characters extends React.Component<Props, any> {
+  renderCharacters(_characters: CharacterState[]) {
     return (
       <div>
         {_characters.map(() => <Character/>)}
@@ -15,10 +15,12 @@ export const Characters = ({ characters }: Props) => {
     );
   }
 
-  return (
-    <div>
-      Characters
-      {renderCharacters(characters)}
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        Characters
+        {this.renderCharacters(this.props.characters)}
+      </div>
+    );
+  }
+}

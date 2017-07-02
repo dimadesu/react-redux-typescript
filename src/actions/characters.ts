@@ -3,8 +3,6 @@ import {Dispatch} from 'redux';
 import {LOADING_CHARACTERS_SUCCEEDED} from '../constants/characters';
 import {CharacterState} from '../types/index';
 
-// TODO: perhaps replace with manual action creator
-
 export const loadingCharacterSucceeded = (characters: CharacterState[]) => ({
   type: LOADING_CHARACTERS_SUCCEEDED,
   characters

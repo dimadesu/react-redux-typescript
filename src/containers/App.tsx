@@ -10,17 +10,21 @@ interface Props {
   dispatch: Dispatch<Action>;
 }
 
-export const App = ({ characters, dispatch }: Props) => {
-  const loadCharactersBound = bindActionCreators(loadCharacters, dispatch);
-  loadCharactersBound();
+export class App extends React.Component<Props, any> {
+  componentDidMount() {
+    const loadCharactersBound = bindActionCreators(loadCharacters, this.props.dispatch);
+    loadCharactersBound();
+  }
 
-  return (
-    <div>
-      Hello from App container
-      <Characters characters={characters} />
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        Hello from App container
+        <Characters characters={this.props.characters} />
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state: Props) => {
   return {
@@ -29,5 +33,5 @@ const mapStateToProps = (state: Props) => {
 };
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
 )(App);
