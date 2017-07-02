@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+import {Characters} from '../components/Characters';
 
 interface Props {
   pages: string[];
@@ -9,6 +10,7 @@ export const App = function () {
   return (
     <div>
       Hello from App container
+      <Characters/>
     </div>
   );
 };
