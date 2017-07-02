@@ -11,3 +11,7 @@
 .columns > * {
   flex: 1;
 }
+
+.search-and-characters {
+  padding-right: 20px;
+}

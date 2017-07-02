@@ -1,3 +1,4 @@
+import './Character.css';
 import * as React from 'react';
 import {CharacterState} from '../types/index';
 
@@ -9,6 +10,7 @@ interface ExtendedCharacterState extends CharacterState {
 export const Character = ({ name, gender, onCharacterClick }: ExtendedCharacterState) => {
   return (
     <div
+      className="character"
       onClick={
         () => {
           onCharacterClick({
@@ -18,7 +20,7 @@ export const Character = ({ name, gender, onCharacterClick }: ExtendedCharacterS
         }
       }
     >
-      <p>{name}</p>
+      {name}
     </div>
   );
 };

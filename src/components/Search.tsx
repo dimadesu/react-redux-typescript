@@ -1,3 +1,4 @@
+import './Search.css';
 import * as React from 'react';
 
 interface Props {
@@ -30,6 +31,7 @@ export class Search extends React.Component<Props, State> {
   render () {
     return (
       <input
+        className="search"
         type="text"
         placeholder="Search"
         autoFocus={true}

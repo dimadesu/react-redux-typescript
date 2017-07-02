@@ -25,21 +25,24 @@ export class App extends React.Component<Props, any> {
     return (
       <div className="app">
         <h1>StarWars Characters App</h1>
-        <Search
-          onSearch={
-            (term: string) => {
-              dispatch(searchCharacters(term));
-            }
-          }
-        />
         <div className="columns">
-          <Characters
-            characters={this.props.characters}
-            onCharacterClick={
-              (characterDetails: CharacterState) => {
-                dispatch(setCharacterDetails(characterDetails));
-              }}
-          />
+          <div className="search-and-characters">
+            <Search
+              onSearch={
+                (term: string) => {
+                  dispatch(searchCharacters(term));
+                }
+              }
+            />
+            <Characters
+              characters={this.props.characters}
+              onCharacterClick={
+                (characterDetails: CharacterState) => {
+                  dispatch(setCharacterDetails(characterDetails));
+                }
+              }
+            />
+          </div>
           <CharacterDetails
             {...this.props.characterDetails}
           />
