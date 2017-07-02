@@ -13,11 +13,7 @@ function configureStore(initialState: object): Store<any> {
 }
 
 const initialState = {
-  characters: [],
-  enthusiasm: {
-    enthusiasmLevel: 1,
-    languageName: 'TypeScript',
-  }
+  characters: []
 };
 
 export const store = configureStore(initialState);
