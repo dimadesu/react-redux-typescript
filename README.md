@@ -1,10 +1,11 @@
 # react-redux-typescript
 
-Based on:
-- [https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter]
-- Some ideas from [https://github.com/jaysoo/todomvc-redux-react-typescript]
-
 To start run `npm i && npm start`.
 
 Tested with:
-- Windows 10, Node.js v8.1.3, NPM v5.0.3
+- Latest Google Chrome, macOS Sierra 10.12.5, Node.js v.7.10.0, NPM v5.0.4
+- Latest Google Chrome, Windows 10, Node.js v8.1.3, NPM v5.0.3
+
+Based on:
+- [https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter]
+- Some ideas from [https://github.com/jaysoo/todomvc-redux-react-typescript]
