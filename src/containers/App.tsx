@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 interface Props {
   pages: string[];
 }
 
-const App = function () {
+export const App = function () {
   return (
-      <div>
-        Hello from App container
-      </div>
+    <div>
+      Hello from App container
+    </div>
   );
 };
 
@@ -20,5 +20,5 @@ function mapStateToProps(state: Props) {
 }
 
 export default connect(
-    mapStateToProps
+  mapStateToProps
 )(App);
