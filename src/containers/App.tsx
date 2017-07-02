@@ -1,15 +1,15 @@
 import './App.css';
 import * as React from 'react';
-import {bindActionCreators, Action} from 'redux';
+import {bindActionCreators} from 'redux';
 import {connect, Dispatch} from 'react-redux';
 import {Characters} from '../components/Characters';
 import {CharacterDetails} from '../components/CharacterDetails';
 import {loadCharacters} from '../actions/characters';
-import {CharacterState} from '../types/index';
+import {setCharacterDetails} from '../actions/characterDetails';
+import {StoreState, CharacterState} from '../types/index';
 
-interface Props {
-  characters: CharacterState[];
-  dispatch: Dispatch<Action>;
+interface Props extends StoreState {
+  dispatch: Dispatch<any>;
 }
 
 export class App extends React.Component<Props, any> {
@@ -19,12 +19,22 @@ export class App extends React.Component<Props, any> {
   }
 
   render() {
+    const { dispatch } = this.props;
+
     return (
       <div className="app">
         <h1>StarWars Characters App</h1>
         <div className="columns">
-          <Characters characters={this.props.characters} />
-          <CharacterDetails {...this.props.characters[0]}/>
+          <Characters
+            characters={this.props.characters}
+            onCharacterClick={
+              (characterDetails: CharacterState) => {
+                dispatch(setCharacterDetails(characterDetails));
+              }}
+          />
+          <CharacterDetails
+            {...this.props.characterDetails}
+          />
         </div>
       </div>
     );
@@ -34,6 +44,7 @@ export class App extends React.Component<Props, any> {
 const mapStateToProps = (state: Props) => {
   return {
     characters: state.characters,
+    characterDetails: state.characterDetails
   };
 };
 

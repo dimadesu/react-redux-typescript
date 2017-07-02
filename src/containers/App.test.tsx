@@ -2,11 +2,14 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 import { App } from './App';
 
+const character = {
+  name: 'A',
+  gender: 'A'
+};
+
 const minimalProps = {
-  characters: [{
-    name: 'A',
-    gender: 'A'
-  }],
+  characterDetails: character,
+  characters: [character],
   dispatch: () => ({})
 };
 

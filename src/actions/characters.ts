@@ -10,7 +10,7 @@ export const loadingCharacterSucceeded = (characters: CharacterState[]) => ({
 
 export const loadCharacters = () => (dispatch: Dispatch<Action>) => {
   fetch(
-    'https://swapi.co/api/people/?format=json&page=2',
+    'https://swapi.co/api/people/?format=json&page=1',
     {
       method: 'GET',
       mode: 'cors'

@@ -5,7 +5,7 @@ import rootReducer from '../reducers';
 function configureStore(initialState: object): Store<any> {
   const store = createStore(
     rootReducer,
-    initialState, // {} as Store.All,
+    initialState,
     applyMiddleware(thunk),
   );
 
@@ -13,7 +13,8 @@ function configureStore(initialState: object): Store<any> {
 }
 
 const initialState = {
-  characters: []
+  characters: [],
+  characterDetails: {}
 };
 
 export const store = configureStore(initialState);

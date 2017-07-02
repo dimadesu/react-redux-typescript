@@ -6,7 +6,8 @@ const props = {
   characters: [{
     name: 'N',
     gender: 'N',
-  }]
+  }],
+  onCharacterClick: () => {}
 };
 
 describe('Characters', () => {

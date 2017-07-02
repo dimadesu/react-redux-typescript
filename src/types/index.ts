@@ -5,4 +5,5 @@ export interface CharacterState {
 
 export interface StoreState {
   characters: CharacterState[];
+  characterDetails: CharacterState;
 }
