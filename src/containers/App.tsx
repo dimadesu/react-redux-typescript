@@ -5,7 +5,7 @@ import {connect, Dispatch} from 'react-redux';
 import {Characters} from '../components/Characters';
 import {CharacterDetails} from '../components/CharacterDetails';
 import {Search} from '../components/Search';
-import {loadCharacters, searchCharacters} from '../actions/characters';
+import {loadAllCharacters, searchCharacters} from '../actions/characters';
 import {setCharacterDetails} from '../actions/characterDetails';
 import {StoreState, CharacterState} from '../types/index';
 
@@ -15,8 +15,7 @@ interface Props extends StoreState {
 
 export class App extends React.Component<Props, any> {
   componentDidMount() {
-    const loadCharactersBound = bindActionCreators(loadCharacters, this.props.dispatch);
-    loadCharactersBound();
+    bindActionCreators(loadAllCharacters, this.props.dispatch)();
   }
 
   render() {
