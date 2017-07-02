@@ -9,7 +9,7 @@ interface CustomAction {
 export function characters(state: CharacterState[], action: CustomAction): CharacterState[] {
   switch (action.type) {
     case LOADING_CHARACTERS_SUCCEEDED:
-      return state.slice().concat(action.characters);
+      return action.characters.slice();
     default:
       return state ? state : [];
   }

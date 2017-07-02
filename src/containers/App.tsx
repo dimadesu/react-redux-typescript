@@ -4,7 +4,8 @@ import {bindActionCreators} from 'redux';
 import {connect, Dispatch} from 'react-redux';
 import {Characters} from '../components/Characters';
 import {CharacterDetails} from '../components/CharacterDetails';
-import {loadCharacters} from '../actions/characters';
+import {Search} from '../components/Search';
+import {loadCharacters, searchCharacters} from '../actions/characters';
 import {setCharacterDetails} from '../actions/characterDetails';
 import {StoreState, CharacterState} from '../types/index';
 
@@ -24,6 +25,13 @@ export class App extends React.Component<Props, any> {
     return (
       <div className="app">
         <h1>StarWars Characters App</h1>
+        <Search
+          onSearch={
+            (term: string) => {
+              dispatch(searchCharacters(term));
+            }
+          }
+        />
         <div className="columns">
           <Characters
             characters={this.props.characters}

@@ -5,5 +5,5 @@ export const setCharacterDetails = (characterDetails: CharacterState) => {
   return {
     type: SET_CHARACTER_DETAILS,
     characterDetails
-  }
+  };
 };
