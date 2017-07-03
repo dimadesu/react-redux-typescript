@@ -1,7 +1,6 @@
 import {SUBMIT_COMMENT} from '../constants/comments';
-import {CommentState} from '../types/index';
 
-export const submitComment = (comment: CommentState) => {
+export const submitComment = (comment: string) => {
   return {
     type: SUBMIT_COMMENT,
     comment

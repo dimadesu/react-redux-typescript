@@ -13,7 +13,7 @@ import {loginAsUser} from '../actions/users';
 import {setCharacterDetails} from '../actions/characterDetails';
 import {submitComment} from '../actions/comments';
 
-import {StoreState, CharacterState, UserState, CommentState} from '../types/index';
+import {StoreState, CharacterState, UserState} from '../types/index';
 
 interface Props extends StoreState {
   dispatch: Dispatch<any>;
@@ -52,7 +52,7 @@ export class App extends React.Component<Props, any> {
             {...this.props.characterDetails}
             users={this.props.users}
             loginAsUser={(user: UserState) => dispatch(loginAsUser(user))}
-            submitComment={(comment: CommentState) => dispatch(submitComment(comment))}
+            submitComment={(comment: string) => dispatch(submitComment(comment))}
           />
         </div>
       </div>

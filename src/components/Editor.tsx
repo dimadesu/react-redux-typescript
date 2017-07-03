@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {UserState, CommentState} from '../types/index';
+import {UserState} from '../types/index';
 import {UserSelector} from './UserSelector';
 import {CommentEditor} from './CommentEditor';
 
@@ -20,7 +20,7 @@ export class Editor extends React.Component<Props, any> {
       <div>
         <h3>Editor</h3>
         <UserSelector {...this.props} loginAsUser={(user: UserState) => loginAsUser(user)}/>
-        <CommentEditor onCommentSubmit={(comment: CommentState) => submitComment(comment)}/>
+        <CommentEditor onCommentSubmit={(comment: string) => submitComment(comment)}/>
       </div>
     );
   }

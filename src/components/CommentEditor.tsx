@@ -1,9 +1,8 @@
 import './CommentEditor.css';
 import * as React from 'react';
-import {CommentState} from '../types/index';
 
 interface Props {
-  onCommentSubmit: (comment: CommentState) => void;
+  onCommentSubmit: (comment: string) => void;
 }
 
 interface State {
@@ -21,12 +20,7 @@ export class CommentEditor extends React.Component<Props, State> {
   handleSubmit(event: any) {
     const text = event.target.value.trim();
     if (event.which === 13) {
-      this.props.onCommentSubmit({
-        id: 123,
-        value: text,
-        userId: 1,
-        characterId: 'TODO',
-      });
+      this.props.onCommentSubmit(text);
     }
   }
 

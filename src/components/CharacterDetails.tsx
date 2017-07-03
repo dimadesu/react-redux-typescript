@@ -1,6 +1,6 @@
 import './CharacterDetails.css';
 import * as React from 'react';
-import {CharacterState, UserState, CommentState} from '../types/index';
+import {CharacterState, UserState} from '../types/index';
 import {Editor} from './Editor';
 
 interface ExtendedCharacterState extends CharacterState {
@@ -29,7 +29,7 @@ export const CharacterDetails = (
       <Editor
         users={users}
         loginAsUser={(user: UserState) => loginAsUser(user)}
-        submitComment={(comment: CommentState) => submitComment(comment)}
+        submitComment={(comment: string) => submitComment(comment)}
       />
     </div>
   );

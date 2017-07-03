@@ -1,16 +1,27 @@
-import {CommentState} from '../types/index';
+import {StoreState, CommentState} from '../types/index';
 import {SUBMIT_COMMENT} from '../constants/comments';
 
 interface CustomAction {
   type: string;
-  comment: CommentState;
+  comment: string;
 }
 
-export function comments(state: CommentState[], action: CustomAction): CommentState[] {
+export function comments(state: StoreState, action: CustomAction): CommentState[] {
   switch (action.type) {
     case SUBMIT_COMMENT:
-      return state.concat(action.comment);
+      const loggedInUser = state.users.filter(user => user.isLoggedIn)[0];
+
+      const _state = state.comments.slice();
+
+      _state.push({
+        id: state.comments.length,
+        value: action.comment,
+        userId: loggedInUser.id,
+        characterId: state.characterDetails.id,
+      });
+
+      return _state;
     default:
-      return state ? state : [];
+      return state.comments ? state.comments : [];
   }
 }

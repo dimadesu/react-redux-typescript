@@ -12,7 +12,7 @@ function rootReducer(
     characters: characters(state.characters, action),
     characterDetails: characterDetails(state.characterDetails, action),
     users: users(state.users, action),
-    comments: comments(state.comments, action),
+    comments: comments(state, action),
   };
 }
 
