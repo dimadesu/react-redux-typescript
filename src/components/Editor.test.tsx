@@ -5,7 +5,8 @@ import {Editor} from './Editor';
 describe('Editor', () => {
   const props = {
     users: [],
-    loginAsUser(){}
+    loginAsUser(){},
+    submitComment(){},
   };
 
   it('Does not crash', () => {

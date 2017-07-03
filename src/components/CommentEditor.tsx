@@ -1,7 +1,8 @@
 import * as React from 'react';
+import {CommentState} from '../types/index';
 
 interface Props {
-  onCommentSubmit: (text: string) => void;
+  onCommentSubmit: (comment: CommentState) => void;
 }
 
 interface State {
@@ -19,7 +20,12 @@ export class CommentEditor extends React.Component<Props, State> {
   handleSubmit(event: any) {
     const text = event.target.value.trim();
     if (event.which === 13) {
-      this.props.onCommentSubmit(text);
+      this.props.onCommentSubmit({
+        id: 123,
+        value: text,
+        userId: 1,
+        characterId: 'TODO',
+      });
     }
   }
 
@@ -30,7 +36,8 @@ export class CommentEditor extends React.Component<Props, State> {
   render () {
     return (
       <div className="comment-editor">
-        <textarea
+        <input
+          type="text"
           placeholder="Leave a comment"
           value={this.state.text}
           onChange={(event) => this.handleChange(event)}

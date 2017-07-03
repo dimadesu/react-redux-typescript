@@ -20,7 +20,7 @@ describe('CommentEditor', () => {
       <CommentEditor
         onCommentSubmit={() => mockCallback()}
       />
-    ).find('textarea').simulate('keyDown', {which: 13});
+    ).find('input').simulate('keyDown', {which: 13});
 
     expect(mockCallback.mock.calls.length).toBe(1);
   });

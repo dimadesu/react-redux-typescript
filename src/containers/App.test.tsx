@@ -25,6 +25,8 @@ const props = {
       isLoggedIn: false,
     }
   ],
+  comments: [],
+  ratings: [],
   dispatch: () => ({})
 };
 

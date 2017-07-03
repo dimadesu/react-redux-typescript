@@ -7,7 +7,8 @@ const props = {
   name: 'A',
   gender: 'A',
   users: [],
-  loginAsUser(){}
+  loginAsUser(){},
+  submitComment(){},
 };
 
 describe('CharacterDetails', () => {
