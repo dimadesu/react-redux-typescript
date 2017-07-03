@@ -21,6 +21,7 @@ export class CommentEditor extends React.Component<Props, State> {
     const text = event.target.value.trim();
     if (event.which === 13) {
       this.props.onCommentSubmit(text);
+      this.setState({ text: '' });
     }
   }
 

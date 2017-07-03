@@ -50,6 +50,7 @@ export class App extends React.Component<Props, any> {
           </div>
           <CharacterDetails
             {...this.props.characterDetails}
+            comments={this.props.comments}
             users={this.props.users}
             loginAsUser={(user: UserState) => dispatch(loginAsUser(user))}
             submitComment={(comment: string) => dispatch(submitComment(comment))}

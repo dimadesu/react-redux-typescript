@@ -1,10 +1,12 @@
 import './CharacterDetails.css';
 import * as React from 'react';
-import {CharacterState, UserState} from '../types/index';
+import {CharacterState, UserState, CommentState} from '../types/index';
 import {Editor} from './Editor';
+import {CommentsList} from './CommentsList';
 
 interface ExtendedCharacterState extends CharacterState {
   key?: number;
+  comments: CommentState[];
   users: UserState[];
   loginAsUser: Function;
   submitComment: Function;
@@ -15,6 +17,8 @@ export const CharacterDetails = (
     id,
     name,
     gender,
+
+    comments,
     users,
     loginAsUser,
     submitComment
@@ -26,6 +30,9 @@ export const CharacterDetails = (
       <p>Name: {name}</p>
       <p>Gender: {gender}</p>
       <p>ID: {id}</p>
+      <CommentsList
+        comments={comments}
+      />
       <Editor
         users={users}
         loginAsUser={(user: UserState) => loginAsUser(user)}
