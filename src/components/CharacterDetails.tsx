@@ -16,9 +16,9 @@ export const CharacterDetails = (
   return (
     <div className="character-details">
       <h2>Character Details</h2>
-      <p>{name}</p>
-      <p>{gender}</p>
-      <p>{id}</p>
+      <p>Name: {name}</p>
+      <p>Gender: {gender}</p>
+      <p>ID: {id}</p>
     </div>
   );
 };

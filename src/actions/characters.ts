@@ -1,7 +1,8 @@
 import {Action, Dispatch, bindActionCreators} from 'redux';
 import {
   LOADING_CHARACTERS_SUCCEEDED,
-  LOADING_ALL_CHARACTERS_SUCCEEDED
+  LOADING_ALL_CHARACTERS_SUCCEEDED,
+  SEARCH_CHARACTERS
 } from '../constants/characters';
 import {CharacterState} from '../types/index';
 
@@ -42,19 +43,9 @@ export const loadAllCharacters = () => (dispatch: Dispatch<Action>) => {
   }));
 };
 
-export const searchCharacters = (term: string) => (dispatch: Dispatch<Action>) => {
-  fetch(`${BASE_URL}?page=1&search=${term}`)
-  .then((response) => response.json())
-  .then((json) => {
-    const characters = json.results.map((character: any) => {
-      return {
-        name: character.name,
-        gender: character.gender
-      };
-    });
-
-    dispatch(
-      loadingCharactersSucceeded(characters)
-    );
-  });
+export const searchCharacters = (term: string) => {
+  return {
+    type: SEARCH_CHARACTERS,
+    term
+  };
 };
