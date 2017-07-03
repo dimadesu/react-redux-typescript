@@ -24,6 +24,24 @@ export class App extends React.Component<Props, any> {
     bindActionCreators(loadAllCharacters, this.props.dispatch)();
   }
 
+  renderCharacterDetails() {
+    if (this.props.characterDetails) {
+      const { dispatch } = this.props;
+
+      return (
+        <CharacterDetails
+          {...this.props.characterDetails}
+          comments={this.props.comments}
+          users={this.props.users}
+          loginAsUser={(user: UserState) => dispatch(loginAsUser(user))}
+          submitComment={(comment: string) => dispatch(submitComment(comment))}
+        />
+      );
+    } else {
+      return;
+    }
+  }
+
   render() {
     const { dispatch } = this.props;
 
@@ -48,13 +66,7 @@ export class App extends React.Component<Props, any> {
               }
             />
           </div>
-          <CharacterDetails
-            {...this.props.characterDetails}
-            comments={this.props.comments}
-            users={this.props.users}
-            loginAsUser={(user: UserState) => dispatch(loginAsUser(user))}
-            submitComment={(comment: string) => dispatch(submitComment(comment))}
-          />
+          {this.renderCharacterDetails()}
         </div>
       </div>
     );

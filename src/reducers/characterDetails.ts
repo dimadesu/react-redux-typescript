@@ -11,10 +11,6 @@ export function characterDetails(state: CharacterState, action: CustomAction): C
     case SET_CHARACTER_DETAILS:
       return Object.assign({}, state, action.characterDetails);
     default:
-      return state ? state : {
-        id: 'Not selected',
-        name: 'Not selected',
-        gender: 'Not selected'
-      };
+      return state;
   }
 }

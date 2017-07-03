@@ -24,14 +24,16 @@ export const CharacterDetails = (
     submitComment
   }: ExtendedCharacterState
 ) => {
+  const filteredComments = comments.filter(comment => comment.characterId === id);
+
   return (
     <div className="character-details">
       <h2>Character Details</h2>
-      <p>Name: {name}</p>
-      <p>Gender: {gender}</p>
-      <p>ID: {id}</p>
+      <p><b>Name</b> {name}</p>
+      <p><b>Gender</b> {gender}</p>
+      <p><b>ID</b> {id}</p>
       <CommentsList
-        comments={comments}
+        comments={filteredComments}
       />
       <Editor
         users={users}

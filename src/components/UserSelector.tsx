@@ -43,14 +43,14 @@ export class UserSelector extends React.Component<Props, any> {
   render() {
     return (
       <div>
-        <h4>
-          Click users to login:
+        <p>
+          Click user to login:
           {this.renderUsers()}
-        </h4>
-        <h4>
+        </p>
+        <p>
           Logged in as:
           {this.renderLoggedInUser()}
-        </h4>
+        </p>
       </div>
     );
   }
