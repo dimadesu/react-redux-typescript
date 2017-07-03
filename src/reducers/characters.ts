@@ -2,7 +2,8 @@ import {CharacterState} from '../types/index';
 import {
   LOADING_CHARACTERS_SUCCEEDED,
   LOADING_ALL_CHARACTERS_SUCCEEDED,
-  SEARCH_CHARACTERS
+  SEARCH_CHARACTERS,
+  SORT_CHARACTERS_BY_RATING,
 } from '../constants/characters';
 
 interface CustomAction {
@@ -16,12 +17,15 @@ export function characters(state: CharacterState[], action: CustomAction): Chara
     case LOADING_CHARACTERS_SUCCEEDED:
       return state.concat(action.characters);
     case LOADING_ALL_CHARACTERS_SUCCEEDED:
-      // TODO: sort
       return state.concat(action.characters);
     case SEARCH_CHARACTERS:
-      // TODO: sort
       return state.filter((character) => {
         return character && character.name && character.name.indexOf(action.term) !== -1;
+      });
+    case SORT_CHARACTERS_BY_RATING:
+      // TODO: we could sort alphabetically when rating is the same
+      return state.sort(function(a: CharacterState, b: CharacterState) {
+        return b.rating - a.rating;
       });
     default:
       return state ? state : [];
