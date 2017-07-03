@@ -7,6 +7,7 @@ const props = {
     id: 'N',
     name: 'N',
     gender: 'N',
+    rating: 0,
   }],
   onCharacterClick: () => {}
 };

@@ -7,6 +7,7 @@ const props = {
     id: 'A',
     name: 'A',
     gender: 'A',
+    rating: 0,
   },
   comments: [],
   users: [

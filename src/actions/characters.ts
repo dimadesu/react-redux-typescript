@@ -21,7 +21,8 @@ export const loadCharactersPage = (page: number) => (dispatch: Dispatch<Action>)
       return {
         id: character.url,
         name: character.name,
-        gender: character.gender
+        gender: character.gender,
+        rating: 0,
       };
     });
 

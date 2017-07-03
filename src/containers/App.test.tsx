@@ -5,7 +5,8 @@ import { App } from './App';
 const character = {
   id: 'A',
   name: 'A',
-  gender: 'A'
+  gender: 'A',
+  rating: 0,
 };
 
 const props = {

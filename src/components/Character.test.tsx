@@ -7,6 +7,7 @@ describe('Character', () => {
     id: 'A',
     name: 'A',
     gender: 'A',
+    rating: 0,
     onCharacterClick: () => {}
   };
 

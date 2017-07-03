@@ -7,7 +7,7 @@ interface ExtendedCharacterState extends CharacterState {
   onCharacterClick: Function;
 }
 
-export const Character = ({ id, name, gender, onCharacterClick }: ExtendedCharacterState) => {
+export const Character = ({ id, name, gender, rating, onCharacterClick }: ExtendedCharacterState) => {
   return (
     <div
       className="character"
@@ -22,6 +22,7 @@ export const Character = ({ id, name, gender, onCharacterClick }: ExtendedCharac
       }
     >
       {name}
+      <span className="chracter__rating">rating: {rating}</span>
     </div>
   );
 };

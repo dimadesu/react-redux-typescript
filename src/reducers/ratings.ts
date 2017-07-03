@@ -21,6 +21,13 @@ export function ratings(state: StoreState, action: CustomAction): RatingsState {
         characterId: state.characterDetails.id,
       };
 
+      const selectedCharacter = state.characters.filter(
+        (character) => character && character.id === state.characterDetails.id
+      )[0];
+
+      // TODO: side effect
+      selectedCharacter.rating = selectedCharacter.rating + action.rating;
+
       return _ratingsState;
     default:
       return state.ratings ? state.ratings : {};
