@@ -10,7 +10,6 @@ interface CustomAction {
 export function users(state: UserState[], action: CustomAction): UserState[] {
   switch (action.type) {
     case LOGIN_AS_USER:
-      debugger;
       return state.map((user) => {
         const _user = Object.assign({}, user);
         _user.isLoggedIn = action.user.id === _user.id;
