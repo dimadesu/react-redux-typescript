@@ -1,3 +1,4 @@
+import './UserSelector.css';
 import * as React from 'react';
 import {UserState} from '../types/index';
 
@@ -13,21 +14,43 @@ export class UserSelector extends React.Component<Props, any> {
     return this.props.users.map(
       (user, index) => {
         return (
-          <div key={index} style={{color: user.color}} onClick={() => _this.props.loginAsUser(user)}>
-            <div>ID: {user.id}</div>
-            <div>Name: {user.name}</div>
-            <div>Is Logged In: {user.isLoggedIn ? 'yes' : 'no'}</div>
-          </div>
+          <span className="user" key={index} style={{color: user.color}} onClick={() => _this.props.loginAsUser(user)}>
+            {user.name}
+          </span>
         );
       }
+    );
+  }
+
+  renderLoggedInUser() {
+    return this.props.users
+      .filter((user) => user.isLoggedIn)
+      .map(
+        (user, index) => {
+          return (
+            <span
+              key={index}
+              className="user"
+              style={{color: user.color}}
+            >
+              {user.name}
+            </span>
+          );
+        }
     );
   }
 
   render() {
     return (
       <div>
-        <h4>Users</h4>
-        {this.renderUsers()}
+        <h4>
+          Available Users:
+          {this.renderUsers()}
+          </h4>
+        <h4>
+          Logged in as:
+          {this.renderLoggedInUser()}
+        </h4>
       </div>
     );
   }
