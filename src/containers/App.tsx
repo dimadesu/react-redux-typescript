@@ -6,8 +6,9 @@ import {Characters} from '../components/Characters';
 import {CharacterDetails} from '../components/CharacterDetails';
 import {Search} from '../components/Search';
 import {loadAllCharacters, searchCharacters} from '../actions/characters';
+import {loginAsUser} from '../actions/users';
 import {setCharacterDetails} from '../actions/characterDetails';
-import {StoreState, CharacterState} from '../types/index';
+import {StoreState, CharacterState, UserState} from '../types/index';
 
 interface Props extends StoreState {
   dispatch: Dispatch<any>;
@@ -45,6 +46,7 @@ export class App extends React.Component<Props, any> {
           <CharacterDetails
             {...this.props.characterDetails}
             users={this.props.users}
+            loginAsUser={(user: UserState) => dispatch(loginAsUser(user))}
           />
         </div>
       </div>

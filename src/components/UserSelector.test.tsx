@@ -4,7 +4,8 @@ import {UserSelector} from './UserSelector';
 
 describe('UserSelector', () => {
   const props = {
-    users: []
+    users: [],
+    loginAsUser(){}
   };
 
   it('Does not crash', () => {

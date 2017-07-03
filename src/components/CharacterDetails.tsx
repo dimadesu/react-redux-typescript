@@ -6,6 +6,7 @@ import {Editor} from './Editor';
 interface ExtendedCharacterState extends CharacterState {
   key?: number;
   users: UserState[];
+  loginAsUser: Function;
 }
 
 export const CharacterDetails = (
@@ -13,7 +14,8 @@ export const CharacterDetails = (
     id,
     name,
     gender,
-    users
+    users,
+    loginAsUser
   }: ExtendedCharacterState
 ) => {
   return (
@@ -22,7 +24,7 @@ export const CharacterDetails = (
       <p>Name: {name}</p>
       <p>Gender: {gender}</p>
       <p>ID: {id}</p>
-      <Editor users={users}/>
+      <Editor users={users} loginAsUser={(user: UserState) => loginAsUser(user)}/>
     </div>
   );
 };

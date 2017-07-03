@@ -8,7 +8,7 @@ const character = {
   gender: 'A'
 };
 
-const minimalProps = {
+const props = {
   characterDetails: character,
   characters: [character],
   users: [
@@ -16,11 +16,13 @@ const minimalProps = {
       id: 1,
       name: 'User 1',
       color: 'red',
+      isLoggedIn: true,
     },
     {
       id: 2,
       name: 'User 2',
       color: 'blue',
+      isLoggedIn: false,
     }
   ],
   dispatch: () => ({})
@@ -28,7 +30,7 @@ const minimalProps = {
 
 describe('App', () => {
   it('Does not crash', () => {
-      expect(shallow(<App {...minimalProps}/>).length).toBe(1);
+      expect(shallow(<App {...props}/>).length).toBe(1);
   });
 
   it('Loads characters on mount');
