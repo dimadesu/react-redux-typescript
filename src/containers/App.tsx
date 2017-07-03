@@ -44,6 +44,7 @@ export class App extends React.Component<Props, any> {
           </div>
           <CharacterDetails
             {...this.props.characterDetails}
+            users={this.props.users}
           />
         </div>
       </div>

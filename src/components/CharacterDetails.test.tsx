@@ -6,6 +6,7 @@ const props = {
   id: 'A',
   name: 'A',
   gender: 'A',
+  users: [],
 };
 
 describe('CharacterDetails', () => {
