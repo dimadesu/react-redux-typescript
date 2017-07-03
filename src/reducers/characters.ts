@@ -20,7 +20,9 @@ export function characters(state: CharacterState[], action: CustomAction): Chara
       return state.concat(action.characters);
     case SEARCH_CHARACTERS:
       return state.filter((character) => {
-        return character && character.name && character.name.indexOf(action.term) !== -1;
+        return character && character.name && character.name.toLowerCase().indexOf(
+          action.term.trim().toLowerCase()
+        ) !== -1;
       });
     case SORT_CHARACTERS_BY_RATING:
       return state.slice().sort(function(a: CharacterState, b: CharacterState) {
