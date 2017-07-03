@@ -12,7 +12,7 @@ export class RatingEditor extends React.Component<Props, any> {
   render() {
     return (
       <div className="rating">
-        Rating:{' '}
+        Set rating:{' '}
         <button
           className={
             classNames([
