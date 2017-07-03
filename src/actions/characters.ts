@@ -2,7 +2,8 @@ import {Action, Dispatch, bindActionCreators} from 'redux';
 import {
   LOADING_CHARACTERS_SUCCEEDED,
   LOADING_ALL_CHARACTERS_SUCCEEDED,
-  SEARCH_CHARACTERS
+  SEARCH_CHARACTERS,
+  SORT_CHARACTERS_BY_RATING,
 } from '../constants/characters';
 import {CharacterState} from '../types/index';
 
@@ -39,9 +40,18 @@ export const loadAllCharacters = () => (dispatch: Dispatch<Action>) => {
     [1, 2, 3, 4, 5, 6, 7, 8, 9].map((page) => {
       return bindActionCreators(loadCharactersPage, dispatch)(page);
     })
-  ).then(() => dispatch({
-    type: LOADING_ALL_CHARACTERS_SUCCEEDED
-  }));
+  )
+  .then(
+    () => {
+      dispatch({
+        type: LOADING_ALL_CHARACTERS_SUCCEEDED
+      });
+
+      dispatch({
+        type: SORT_CHARACTERS_BY_RATING
+      });
+    }
+  );
 };
 
 export const searchCharacters = (term: string) => {

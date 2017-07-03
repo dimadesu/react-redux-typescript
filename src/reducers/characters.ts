@@ -23,9 +23,13 @@ export function characters(state: CharacterState[], action: CustomAction): Chara
         return character && character.name && character.name.indexOf(action.term) !== -1;
       });
     case SORT_CHARACTERS_BY_RATING:
-      // TODO: we could sort alphabetically when rating is the same
-      return state.sort(function(a: CharacterState, b: CharacterState) {
-        return b.rating - a.rating;
+      return state.slice().sort(function(a: CharacterState, b: CharacterState) {
+        if (a.rating !== b.rating) {
+          return b.rating - a.rating;
+        } else {
+          // Sort alphabetically when same level
+          return a.name < b.name ? -1 : 1;
+        }
       });
     default:
       return state ? state : [];
