@@ -14,7 +14,12 @@ export class UserSelector extends React.Component<Props, any> {
     return this.props.users.map(
       (user, index) => {
         return (
-          <span className="user" key={index} style={{color: user.color}} onClick={() => _this.props.loginAsUser(user)}>
+          <span
+            className="user"
+            key={index}
+            style={{backgroundColor: user.color}}
+            onClick={() => _this.props.loginAsUser(user)}
+          >
             {user.name}
           </span>
         );
@@ -31,7 +36,7 @@ export class UserSelector extends React.Component<Props, any> {
             <span
               key={index}
               className="user"
-              style={{color: user.color}}
+              style={{backgroundColor: user.color}}
             >
               {user.name}
             </span>
