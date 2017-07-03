@@ -1,4 +1,4 @@
-import {StoreState, RatingState} from '../types/index';
+import {StoreState, RatingsState} from '../types/index';
 import {SET_RATING} from '../constants/ratings';
 
 interface CustomAction {
@@ -6,22 +6,23 @@ interface CustomAction {
   rating: number;
 }
 
-export function ratings(state: StoreState, action: CustomAction): RatingState[] {
+export function ratings(state: StoreState, action: CustomAction): RatingsState {
   switch (action.type) {
     case SET_RATING:
       const loggedInUser = state.users.filter(user => user.isLoggedIn)[0];
 
-      const _state = state.ratings.slice();
+      const _ratingsState = Object.assign({}, state.ratings);
 
-      _state.push({
-        id: state.ratings.length,
+      const id = `${loggedInUser.id}-${state.characterDetails.id}`;
+
+      _ratingsState[id] = {
         value: action.rating,
         userId: loggedInUser.id,
         characterId: state.characterDetails.id,
-      });
+      };
 
-      return _state;
+      return _ratingsState;
     default:
-      return state.ratings ? state.ratings : [];
+      return state.ratings ? state.ratings : {};
   }
 }

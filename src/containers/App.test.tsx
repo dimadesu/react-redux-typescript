@@ -26,7 +26,7 @@ const props = {
     }
   ],
   comments: [],
-  ratings: [],
+  ratings: {},
   dispatch: () => ({})
 };
 

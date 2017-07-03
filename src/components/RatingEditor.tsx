@@ -22,6 +22,7 @@ export class RatingEditor extends React.Component<Props, any> {
               }
             ])
           }
+          onClick={() => this.props.onSetRating(-1)}
         >
           -1
         </button>
@@ -37,6 +38,7 @@ export class RatingEditor extends React.Component<Props, any> {
               }
             ])
           }
+          onClick={() => this.props.onSetRating(0)}
         >
           0
         </button>
@@ -49,6 +51,7 @@ export class RatingEditor extends React.Component<Props, any> {
               }
             ])
           }
+          onClick={() => this.props.onSetRating(1)}
         >
           +1
         </button>

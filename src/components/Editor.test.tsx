@@ -7,6 +7,7 @@ describe('Editor', () => {
     users: [],
     loginAsUser(){},
     submitComment(){},
+    setRating(){},
   };
 
   it('Does not crash', () => {

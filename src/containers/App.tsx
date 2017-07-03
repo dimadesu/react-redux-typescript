@@ -12,6 +12,7 @@ import {loadAllCharacters, searchCharacters} from '../actions/characters';
 import {loginAsUser} from '../actions/users';
 import {setCharacterDetails} from '../actions/characterDetails';
 import {submitComment} from '../actions/comments';
+import {setRating} from '../actions/ratings';
 
 import {StoreState, CharacterState, UserState} from '../types/index';
 
@@ -30,12 +31,13 @@ export class App extends React.Component<Props, any> {
 
       return (
         <CharacterDetails
-          {...this.props.characterDetails}
+          characterDetails={this.props.characterDetails}
           comments={this.props.comments}
           users={this.props.users}
           ratings={this.props.ratings}
           loginAsUser={(user: UserState) => dispatch(loginAsUser(user))}
           submitComment={(comment: string) => dispatch(submitComment(comment))}
+          setRating={(rating: number) => dispatch(setRating(rating))}
         />
       );
     } else {

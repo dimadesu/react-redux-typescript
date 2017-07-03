@@ -1,41 +1,40 @@
 import './CharacterDetails.css';
 import * as React from 'react';
-import {CharacterState, UserState, CommentState, RatingState} from '../types/index';
+import {CharacterState, UserState, CommentState, RatingsState} from '../types/index';
 import {Editor} from './Editor';
 import {CommentsList} from './CommentsList';
 
-interface ExtendedCharacterState extends CharacterState {
-  key?: number;
+interface ExtendedCharacterState {
+  characterDetails: CharacterState;
   comments: CommentState[];
   users: UserState[];
-  ratings: RatingState[];
+  ratings: RatingsState;
   loginAsUser: Function;
   submitComment: Function;
+  setRating: Function;
 }
 
 export const CharacterDetails = (
   {
-    id,
-    name,
-    gender,
-
+    characterDetails,
     comments,
     users,
     ratings,
     loginAsUser,
-    submitComment
+    submitComment,
+    setRating,
   }: ExtendedCharacterState
 ) => {
-  const filteredComments = comments.filter(comment => comment.characterId === id);
+  const filteredComments = comments.filter(comment => comment.characterId === characterDetails.id);
   const loggedInUser = users.filter(user => user.isLoggedIn)[0];
-  const characterRatingByUser = ratings.find(rating => rating.characterId === id && rating.userId === loggedInUser.id);
+  const characterRatingByUser = ratings[`${loggedInUser.id}-${characterDetails.id}`];
 
   return (
     <div className="character-details">
       <h2>Character Details</h2>
-      <p><b>Name</b> {name}</p>
-      <p><b>Gender</b> {gender}</p>
-      <p><b>ID</b> {id}</p>
+      <p><b>Name</b> {characterDetails.name}</p>
+      <p><b>Gender</b> {characterDetails.gender}</p>
+      <p><b>ID</b> {characterDetails.id}</p>
       <CommentsList
         comments={filteredComments}
       />
@@ -44,6 +43,7 @@ export const CharacterDetails = (
         rating={characterRatingByUser}
         loginAsUser={(user: UserState) => loginAsUser(user)}
         submitComment={(comment: string) => submitComment(comment)}
+        setRating={(rating: string) => setRating(rating)}
       />
     </div>
   );

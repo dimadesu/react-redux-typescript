@@ -3,20 +3,30 @@ import {shallow} from 'enzyme';
 import {CharacterDetails} from './CharacterDetails';
 
 const props = {
-  id: 'A',
-  name: 'A',
-  gender: 'A',
-  users: [],
-  ratings: [],
+  characterDetails: {
+    id: 'A',
+    name: 'A',
+    gender: 'A',
+  },
   comments: [],
+  users: [
+    {
+      id: 0,
+      name: 'User 0',
+      color: 'orange',
+      isLoggedIn: true,
+    }
+  ],
+  ratings: {},
   loginAsUser(){},
   submitComment(){},
+  setRating(){},
 };
 
 describe('CharacterDetails', () => {
   it('Does not crash', () => {
     expect(shallow(
-      <CharacterDetails {...props} />
+      <CharacterDetails {...props}/>
     ).length).toEqual(1);
   });
 });

@@ -9,6 +9,7 @@ interface Props {
   rating?: RatingState;
   loginAsUser: Function;
   submitComment: Function;
+  setRating: Function;
 }
 
 export class Editor extends React.Component<Props, any> {
@@ -16,6 +17,7 @@ export class Editor extends React.Component<Props, any> {
     const {
       loginAsUser,
       submitComment,
+      setRating,
     } = this.props;
 
     return (
@@ -25,7 +27,7 @@ export class Editor extends React.Component<Props, any> {
         <CommentEditor onCommentSubmit={(comment: string) => submitComment(comment)}/>
         <RatingEditor
           rating={this.props.rating}
-          onSetRating={() => {}}
+          onSetRating={(rating: number) => setRating(rating)}
         />
       </div>
     );

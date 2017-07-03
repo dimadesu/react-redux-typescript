@@ -19,10 +19,13 @@ export interface CommentState {
 }
 
 export interface RatingState {
-  id: number;
   value: number;
   userId: number;
   characterId: string;
+}
+
+export interface RatingsState {
+  [key: string]: RatingState;
 }
 
 export interface StoreState {
@@ -30,5 +33,5 @@ export interface StoreState {
   characterDetails: CharacterState;
   users: UserState[];
   comments: CommentState[];
-  ratings: RatingState[];
+  ratings: RatingsState;
 }
