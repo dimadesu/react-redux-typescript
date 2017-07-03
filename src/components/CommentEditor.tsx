@@ -1,3 +1,4 @@
+import './CommentEditor.css';
 import * as React from 'react';
 import {CommentState} from '../types/index';
 

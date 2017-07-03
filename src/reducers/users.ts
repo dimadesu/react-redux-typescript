@@ -28,6 +28,12 @@ export function users(state: UserState[], action: CustomAction): UserState[] {
           name: 'User 2',
           color: 'blue',
           isLoggedIn: false,
+        },
+        {
+          id: 3,
+          name: 'User 3',
+          color: 'green',
+          isLoggedIn: false,
         }
       ];
   }
