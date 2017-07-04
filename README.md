@@ -6,7 +6,6 @@ Run tests with `npm test`.
 
 Further improvement ideas:
 - Add pre-commit hook to run linter and tests
-- Check for empty comments on comment posting
 - Write more tests
 
 Tested with:
