@@ -22,7 +22,7 @@ describe('Search', () => {
         onSearch={() => mockCallback()}
       />
     ).find('input')
-      .simulate('keyDown', {which: 13});
+      .simulate('change');
 
     expect(mockCallback.mock.calls.length).toBe(1);
   });

@@ -17,15 +17,10 @@ export class Search extends React.Component<Props, State> {
     };
   }
 
-  handleSubmit(event: any) {
-    const text = event.target.value.trim();
-    if (event.which === 13) {
-      this.props.onSearch(text);
-    }
-  }
-
   handleChange(event: any) {
     this.setState({ text: event.target.value });
+    const text = event.target.value.trim();
+    this.props.onSearch(text);
   }
 
   render () {
@@ -37,7 +32,6 @@ export class Search extends React.Component<Props, State> {
         autoFocus={true}
         value={this.state.text}
         onChange={(event) => this.handleChange(event)}
-        onKeyDown={(event) => this.handleSubmit(event)}
       />
     );
   }

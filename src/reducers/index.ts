@@ -14,7 +14,7 @@ function rootReducer(
   return {
     characters: characters(state.characters, action),
     searchTerm: searchTerm(state.searchTerm, action),
-    sortedAndFilteredCharacters: sortedAndFilteredCharacters(state.characters, action),
+    sortedAndFilteredCharacters: sortedAndFilteredCharacters(state, action),
     characterDetails: characterDetails(state.characterDetails, action),
     users: users(state.users, action),
     comments: comments(state, action),
