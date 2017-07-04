@@ -9,7 +9,17 @@ interface CustomAction {
   term: string;
 }
 
-function sort (characters: CharacterState[]) {
+function filter (characters: CharacterState[], term: string): CharacterState[] {
+  const normalisedTerm = term.trim().toLowerCase();
+
+  return characters.filter((character) => {
+    return character && character.name && character.name.toLowerCase().indexOf(
+        normalisedTerm
+      ) !== -1;
+  });
+}
+
+function sort (characters: CharacterState[]): CharacterState[] {
   return characters.sort(function(a: CharacterState, b: CharacterState) {
     if (a.rating !== b.rating) {
       return b.rating - a.rating;
@@ -22,16 +32,16 @@ function sort (characters: CharacterState[]) {
 
 export function sortedAndFilteredCharacters(state: StoreState, action: CustomAction): CharacterState[] {
   switch (action.type) {
-    case SEARCH_CHARACTERS:
-      const filteredCharacters = state.characters.filter((character) => {
-        return character && character.name && character.name.toLowerCase().indexOf(
-          action.term.trim().toLowerCase()
-        ) !== -1;
-      });
+    case SEARCH_CHARACTERS: {
+      const filteredCharacters = filter(state.characters, action.term);
 
       return sort(filteredCharacters);
-    case SORT_CHARACTERS_BY_RATING:
-      return sort(state.characters);
+    }
+    case SORT_CHARACTERS_BY_RATING: {
+      const filteredCharacters = filter(state.characters, state.searchTerm);
+
+      return sort(filteredCharacters);
+    }
     default:
       let nextState = state.sortedAndFilteredCharacters;
 

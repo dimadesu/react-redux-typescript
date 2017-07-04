@@ -25,6 +25,7 @@ export function ratings(state: StoreState, action: CustomAction): RatingsState {
         (character) => character && character.id === state.characterDetails.id
       )[0];
 
+      // TODO: remove side effect
       selectedCharacter.rating = Object.keys(state.ratings).reduce(
         (sum, ratingId) => {
           const rating = state.ratings[ratingId];

@@ -10,6 +10,7 @@ import {Search} from '../components/Search';
 // Actions
 import {loadAllCharacters} from '../actions/characters';
 import {searchCharacters} from '../actions/sortedAndFilteredCharacters';
+import {setSearchTerm} from '../actions/searchTerm';
 import {loginAsUser} from '../actions/users';
 import {setCharacterDetails} from '../actions/characterDetails';
 import {submitComment} from '../actions/comments';
@@ -58,6 +59,7 @@ export class App extends React.Component<Props, any> {
               onSearch={
                 (term: string) => {
                   dispatch(searchCharacters(term));
+                  dispatch(setSearchTerm(term));
                 }
               }
             />
