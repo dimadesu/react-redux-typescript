@@ -1,7 +1,8 @@
 import {StoreState, CharacterState} from '../types/index';
 import {
   SEARCH_CHARACTERS,
-} from '../constants/characters';
+  SORT_CHARACTERS_BY_RATING,
+} from '../constants/sortedAndFilteredCharacter';
 
 interface CustomAction {
   type: string;
@@ -29,6 +30,8 @@ export function sortedAndFilteredCharacters(state: StoreState, action: CustomAct
       });
 
       return sort(filteredCharacters);
+    case SORT_CHARACTERS_BY_RATING:
+      return sort(state.characters);
     default:
       let nextState = state.sortedAndFilteredCharacters;
 

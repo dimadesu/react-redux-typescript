@@ -1,13 +1,12 @@
 import {Action, Dispatch} from 'redux';
 import {SET_RATING} from '../constants/ratings';
-import {SORT_CHARACTERS_BY_RATING} from '../constants/characters';
+import {sortCharactersByRating} from './sortedAndFilteredCharacters';
 
 export const setRating = (rating: number) => (dispatch: Dispatch<Action>) => {
   dispatch({
     type: SET_RATING,
     rating
   });
-  dispatch({
-    type: SORT_CHARACTERS_BY_RATING
-  });
+
+  dispatch(sortCharactersByRating());
 };
