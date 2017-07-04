@@ -12,6 +12,8 @@ const character = {
 const props = {
   characterDetails: character,
   characters: [character],
+  searchTerm: '',
+  sortedAndFilteredCharacters: [character],
   users: [
     {
       id: 1,

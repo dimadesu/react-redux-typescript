@@ -8,7 +8,8 @@ import {CharacterDetails} from '../components/CharacterDetails';
 import {Search} from '../components/Search';
 
 // Actions
-import {loadAllCharacters, searchCharacters} from '../actions/characters';
+import {loadAllCharacters} from '../actions/characters';
+import {searchCharacters} from '../actions/sortedAndFilteredCharacters';
 import {loginAsUser} from '../actions/users';
 import {setCharacterDetails} from '../actions/characterDetails';
 import {submitComment} from '../actions/comments';
@@ -61,7 +62,7 @@ export class App extends React.Component<Props, any> {
               }
             />
             <Characters
-              characters={this.props.characters}
+              characters={this.props.sortedAndFilteredCharacters}
               onCharacterClick={
                 (characterDetails: CharacterState) => {
                   dispatch(setCharacterDetails(characterDetails));
@@ -79,6 +80,8 @@ export class App extends React.Component<Props, any> {
 const mapStateToProps = (state: Props) => {
   return {
     characters: state.characters,
+    searchTerm: state.searchTerm,
+    sortedAndFilteredCharacters: state.sortedAndFilteredCharacters,
     characterDetails: state.characterDetails,
     users: state.users,
     ratings: state.ratings,

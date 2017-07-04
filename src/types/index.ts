@@ -31,6 +31,8 @@ export interface RatingsState {
 
 export interface StoreState {
   characters: CharacterState[];
+  searchTerm: string;
+  sortedAndFilteredCharacters: CharacterState[];
   characterDetails: CharacterState;
   users: UserState[];
   comments: CommentState[];

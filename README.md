@@ -2,6 +2,13 @@
 
 To start run `npm i && npm start`.
 
+Run tests with `npm test`.
+
+Further improvement ideas:
+- Add pre-commit hook to run linter and tests
+- Improve search
+- Allow one rating per character from one user
+
 Tested with:
 - Latest Google Chrome, macOS Sierra 10.12.5, Node.js v.7.10.0, NPM v5.0.4
 - Latest Google Chrome, Windows 10, Node.js v8.1.3, NPM v5.0.3

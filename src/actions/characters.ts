@@ -2,10 +2,9 @@ import {Action, Dispatch, bindActionCreators} from 'redux';
 import {
   LOADING_CHARACTERS_SUCCEEDED,
   LOADING_ALL_CHARACTERS_SUCCEEDED,
-  SEARCH_CHARACTERS,
-  SORT_CHARACTERS_BY_RATING,
 } from '../constants/characters';
 import {CharacterState} from '../types/index';
+import {sortCharactersByRating} from './sortedAndFilteredCharacters';
 
 export const loadingCharactersSucceeded = (characters: CharacterState[]) => ({
   type: LOADING_CHARACTERS_SUCCEEDED,
@@ -47,16 +46,7 @@ export const loadAllCharacters = () => (dispatch: Dispatch<Action>) => {
         type: LOADING_ALL_CHARACTERS_SUCCEEDED
       });
 
-      dispatch({
-        type: SORT_CHARACTERS_BY_RATING
-      });
+      dispatch(sortCharactersByRating);
     }
   );
-};
-
-export const searchCharacters = (term: string) => {
-  return {
-    type: SEARCH_CHARACTERS,
-    term
-  };
 };
