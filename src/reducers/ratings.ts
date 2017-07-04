@@ -25,8 +25,22 @@ export function ratings(state: StoreState, action: CustomAction): RatingsState {
         (character) => character && character.id === state.characterDetails.id
       )[0];
 
-      // TODO: side effect
-      selectedCharacter.rating = selectedCharacter.rating + action.rating;
+      selectedCharacter.rating = Object.keys(state.ratings).reduce(
+        (sum, ratingId) => {
+          const rating = state.ratings[ratingId];
+          const isRatingByCurrentUser = ratingId === id;
+
+          if (
+            rating.characterId === selectedCharacter.id &&
+            !isRatingByCurrentUser
+          ) {
+            return sum + rating.value;
+          }
+
+          return sum;
+        },
+        action.rating
+      );
 
       return _ratingsState;
     default:
